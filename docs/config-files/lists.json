@@ -1,0 +1,244 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/lists.json",
+  "title": "Lists Configuration",
+  "description": "Lists configuration with provider-specific package extra fields",
+  "$defs": {
+    "ListConfig": {
+      "type": "object",
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": [
+              "name",
+              "packages"
+            ],
+            "properties": {
+              "name": {
+                "anyOf": [
+                  {
+                    "type": "string"
+                  },
+                  {
+                    "type": "number"
+                  }
+                ]
+              },
+              "displayName": {
+                "type": "string"
+              },
+              "showName": {
+                "type": "boolean"
+              },
+              "packages": {
+                "type": "array",
+                "items": {
+                  "oneOf": [
+                    {
+                      "$ref": "#/$defs/GithubPackage"
+                    },
+                    {
+                      "$ref": "#/$defs/NpmPackage"
+                    },
+                    {
+                      "$ref": "#/$defs/PythonPackage"
+                    },
+                    {
+                      "$ref": "#/$defs/DockerPackage"
+                    }
+                  ]
+                }
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "GithubExtra": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "includePrereleases": {
+          "type": "boolean"
+        },
+        "maxReleases": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "GithubPackage": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "const": "github"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extra": {
+          "$ref": "#/$defs/GithubExtra"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "iconDark": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "NpmExtra": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "npmx": {
+          "type": "boolean",
+          "description": "Use npmx.dev instead of npmjs.com as the external link to the package"
+        }
+      },
+      "additionalProperties": false
+    },
+    "NpmPackage": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "const": "npm"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extra": {
+          "$ref": "#/$defs/NpmExtra"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "iconDark": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "PythonExtra": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "maxReleases": {
+          "type": "number"
+        }
+      },
+      "additionalProperties": false
+    },
+    "PythonPackage": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "const": "python"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extra": {
+          "$ref": "#/$defs/PythonExtra"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "iconDark": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "name"
+      ],
+      "additionalProperties": false
+    },
+    "DockerExtra": {
+      "$schema": "http://json-schema.org/draft-07/schema#",
+      "type": "object",
+      "required": [],
+      "properties": {
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "DockerPackage": {
+      "type": "object",
+      "properties": {
+        "provider": {
+          "const": "docker"
+        },
+        "name": {
+          "type": "string"
+        },
+        "extra": {
+          "$ref": "#/$defs/DockerExtra"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "iconDark": {
+          "type": "string"
+        },
+        "displayName": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "provider",
+        "name"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/$defs/ListConfig"
+  }
+}

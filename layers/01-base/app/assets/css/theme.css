@@ -1,0 +1,20 @@
+@theme static {
+  --font-sans: "Geist", sans-serif;
+  --font-mono: "Geist Mono", monospace;
+
+  --color-copperfield-50: #fdf5ef;
+  --color-copperfield-100: #fae8da;
+  --color-copperfield-200: #f3cfb5;
+  --color-copperfield-300: #ebaf86;
+  --color-copperfield-400: #e58f63;
+  --color-copperfield-500: #dc6533;
+  --color-copperfield-600: #ce4e28;
+  --color-copperfield-700: #ab3c23;
+  --color-copperfield-800: #893223;
+  --color-copperfield-900: #6e2b20;
+  --color-copperfield-950: #3b130f;
+}
+
+:root {
+  --ui-radius: 0.2rem;
+}

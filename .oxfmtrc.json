@@ -1,0 +1,31 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "printWidth": 110,
+  "tabWidth": 2,
+  "useTabs": false,
+  "endOfLine": "crlf",
+  "insertFinalNewline": false,
+  "singleQuote": false,
+  "trailingComma": "all",
+  "experimentalSortPackageJson": true,
+  "experimentalSortImports": {
+    "groups": [["builtin", "external"], "internal", "parent", ["sibling", "index"]],
+    "sortExports": true
+  },
+  "experimentalTailwindcss": {},
+  "ignorePatterns": [
+    "**/.nuxt/",
+    "**/.output/",
+    "**/node_modules/",
+    "**/dist/",
+    "**/coverage/",
+    "**/*.d.ts",
+    "**/*.config.*",
+    "**/docs/",
+    "/config/",
+    "**/package.json",
+    "**/CHANGELOG.md",
+    "**/.vscode/",
+    "**/fixtures/**"
+  ]
+}

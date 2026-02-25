@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/ui.json",
+  "title": "Ui Configuration",
+  "description": "UI configuration",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "maxListsInHeader": {
+      "type": "number"
+    }
+  },
+  "additionalProperties": false
+}

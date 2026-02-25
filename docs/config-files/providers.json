@@ -1,0 +1,91 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/providers.json",
+  "title": "Providers Configuration",
+  "description": "Providers configuration with provider-specific extra fields",
+  "type": "object",
+  "properties": {
+    "github": {
+      "type": "object",
+      "properties": {
+        "extra": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "includePrereleases": {
+              "type": "boolean"
+            },
+            "maxReleases": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "npm": {
+      "type": "object",
+      "properties": {
+        "extra": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "npmx": {
+              "type": "boolean",
+              "description": "Use npmx.dev instead of npmjs.com as the external link to the package"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "python": {
+      "type": "object",
+      "properties": {
+        "extra": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "maxReleases": {
+              "type": "number"
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "docker": {
+      "type": "object",
+      "properties": {
+        "extra": {
+          "$schema": "http://json-schema.org/draft-07/schema#",
+          "type": "object",
+          "required": [],
+          "properties": {
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    }
+  },
+  "additionalProperties": false
+}

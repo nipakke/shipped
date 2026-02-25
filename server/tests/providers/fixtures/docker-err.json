@@ -1,0 +1,33 @@
+[
+    {
+        "scope": "https://hub.docker.com:443",
+        "method": "GET",
+        "path": "/v2/repositories/library/nonexistent-image-xyz/",
+        "body": "",
+        "status": 404,
+        "response": {
+            "message": "object not found",
+            "errinfo": {}
+        },
+        "rawHeaders": {
+            "cf-cache-status": "DYNAMIC",
+            "cf-ray": "9d3a25b7deda5aad-VIE",
+            "connection": "keep-alive",
+            "content-length": "44",
+            "content-type": "application/json",
+            "date": "Wed, 25 Feb 2026 21:03:05 GMT",
+            "server": "cloudflare",
+            "set-cookie": "_cfuvid=aIQ6BUUTBQGcpQCK43U8fzqCWx7vfzSJWJivRSruSdw-1772053385060-0.0.1.1-604800000; path=/; domain=.hub.docker.com; HttpOnly; Secure; SameSite=None",
+            "strict-transport-security": "max-age=31536000",
+            "x-content-type-options": "nosniff",
+            "x-frame-options": "deny",
+            "x-ratelimit-ip": "2001:4c4e:24a4:b500::",
+            "x-ratelimit-limit": "180",
+            "x-ratelimit-remaining": "176",
+            "x-ratelimit-reset": "1772053444",
+            "x-trace-id": "a1204dea2150d6770bb1aa5c98df1fa0",
+            "x-xss-protection": "1; mode=block"
+        },
+        "responseIsBinary": false
+    }
+]

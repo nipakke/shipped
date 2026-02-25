@@ -1,0 +1,36 @@
+@theme static {
+  --color-carbon-50: #f7f7f7;
+  --color-carbon-100: #efeff0;
+  --color-carbon-200: #dadadd;
+  --color-carbon-300: #c2c2c7;
+  --color-carbon-400: #a4a4ac;
+  --color-carbon-500: #878792;
+  --color-carbon-600: #6d6d78;
+  --color-carbon-700: #5a5a63;
+  --color-carbon-800: #424248;
+  --color-carbon-900: #313135;
+  --color-carbon-950: #1d1d20;
+
+  --color-shark-50: #cdcddf;
+  --color-shark-100: #b5b5cf;
+  --color-shark-200: #9e9ebd;
+  --color-shark-300: #8888aa;
+  --color-shark-400: #727297;
+  --color-shark-500: #62627f;
+  --color-shark-600: #525266;
+  --color-shark-700: #41414e;
+  --color-shark-800: #2f2f36;
+  --color-shark-900: #1d1d20;
+
+  --color-coffee-bean-50: hsl(0, 7%, 97%);
+  --color-coffee-bean-100: hsl(325, 16%, 94%);
+  --color-coffee-bean-200: hsl(325, 21%, 86%);
+  --color-coffee-bean-300: hsl(325, 26%, 77%);
+  --color-coffee-bean-400: hsl(325, 29%, 66%);
+  --color-coffee-bean-500: hsl(325, 30%, 55%);
+  --color-coffee-bean-600: hsl(325, 30%, 45%);
+  --color-coffee-bean-700: hsl(325, 29%, 37%);
+  --color-coffee-bean-800: hsl(325, 28%, 27%);
+  --color-coffee-bean-900: hsl(325, 30%, 5%);
+  --color-coffee-bean-950: hsl(325, 30%, 5%);
+}

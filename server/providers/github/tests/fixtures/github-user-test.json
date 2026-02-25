@@ -1,0 +1,22 @@
+[
+  {
+    "scope": "https://lorem-api.com:443",
+    "method": "POST",
+    "path": "/api/echo",
+    "body": "",
+    "status": 200,
+    "response": "",
+    "rawHeaders": {
+      "apigw-requestid": "YYGurg-GIAMEZ4w=",
+      "connection": "keep-alive",
+      "content-length": "0",
+      "content-type": "text/plain",
+      "date": "Fri, 06 Feb 2026 20:39:44 GMT",
+      "via": "1.1 6e35182a400ff77728e9029f7e2501ee.cloudfront.net (CloudFront)",
+      "x-amz-cf-id": "Rekwkloyiwq6lyPDeUnNPTpocwBYFLgJhODcuJqxOJIM_kn5X26sOQ==",
+      "x-amz-cf-pop": "VIE50-P4",
+      "x-cache": "Miss from cloudfront"
+    },
+    "responseIsBinary": false
+  }
+]

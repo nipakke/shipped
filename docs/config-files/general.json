@@ -1,0 +1,14 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/general.json",
+  "title": "General Configuration",
+  "description": "General configuration",
+  "type": "object",
+  "required": [],
+  "properties": {
+    "streamConfigChanges": {
+      "type": "boolean"
+    }
+  },
+  "additionalProperties": false
+}

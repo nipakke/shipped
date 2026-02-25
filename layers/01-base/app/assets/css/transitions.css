@@ -1,0 +1,37 @@
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 250ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  opacity: 0;
+  filter: blur(3px);
+}
+
+.slide-up-enter-from {
+  transform: translateY(30px);
+}
+
+.slide-up-leave-to {
+  transform: translateY(-20px);
+}
+
+.slide-up-enter-to,
+.slide-up-leave-from {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
+}
+
+/* ============================================
+   Reduced Motion Support
+   Respect user's accessibility preferences
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .slide-up-enter-active,
+  .slide-up-leave-active {
+    transition: opacity 0.01ms;
+    animation: none;
+  }
+}
