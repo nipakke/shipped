@@ -31,6 +31,10 @@ export const makeCache = Effect.gen(function* () {
         )
         .useL2Layer(
           fileDriver({
+            //TODO: on windows this is broken bc the drive sanitizes paths
+            // C:\ becomes c/\
+            //https://github.com/Julien-R44/bentocache/blob/c513aef166e13c60be13f5c7571ab6ee96c94dbe/packages/bentocache/src/drivers/file/file.ts#L89
+            //so we can't use absolute paths for this on windows
             directory: cacheDir,
             pruneInterval: Duration.toMillis(Duration.seconds(config.packages.cache.pruneIntervalSeconds)),
           }),
