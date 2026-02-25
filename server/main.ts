@@ -6,15 +6,9 @@ import { ServicesLive } from "./services/layer";
 
 export type AppRuntimeEnv = Layer.Layer.Success<typeof AppLive>;
 
-// const LogLevelLive = Logger.minimumLogLevel(LogLevel.Debug);
-
-// Load the log level from the configuration and apply it as a layer
 const LogLevelLive = ServerConfig.pipe(
-  Effect.andThen((config) =>
-    // Set the minimum log level
-    Logger.minimumLogLevel(Option.getOrElse(config.logLevel, () => LogLevel.Info)),
-  ),
-  Layer.unwrapEffect, // Convert the effect into a layer
+  Effect.andThen((config) => Logger.minimumLogLevel(Option.getOrElse(config.logLevel, () => LogLevel.Info))),
+  Layer.unwrapEffect,
 );
 
 export const AppLive = Layer.empty.pipe(
@@ -23,7 +17,6 @@ export const AppLive = Layer.empty.pipe(
   Layer.provideMerge(Layer.scope),
   Layer.provide(Logger.pretty),
   Layer.provide(LogLevelLive),
-  // Layer.provide(Logger.minimumLogLevel(LogLevel.Debug)),
   Layer.provideMerge(NodeContext.layer),
 );
 

@@ -1,11 +1,7 @@
 <template>
   <div>
     <UPopover mode="hover">
-      <UButton variant="ghost" :color="chipColor" icon="stash:circle-dot-duotone">
-        <!-- <div
-          :class="`size-3 rounded-full ${state === 'active' ? 'bg-emerald-500' : state === 'retrying' ? 'bg-yellow-500' : 'bg-gray-500'}`">
-        </div> -->
-      </UButton>
+      <UButton variant="ghost" :color="chipColor" icon="stash:circle-dot-duotone"> </UButton>
       <template #content>
         <div class="max-w-xs space-y-4 p-4">
           <div class="flex gap-2">

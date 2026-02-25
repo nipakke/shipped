@@ -16,6 +16,11 @@ General server environment and file-watching configurations.
 | SERVER_CONFIG_DIR | string | "config" | Config files folder relative to process.cwd() or absolute. Default: 'config' |
 | SERVER_CONFIG_WATCH_POLLING | boolean | false | Use polling instead of native FS events for config file watching. It is typically necessary to set this to true to successfully watch files over a network |
 
+## SERVER_PACKAGES
+| Variable | Type | Default | Description |
+|----------|------|---------|-------------|
+| SERVER_PACKAGES_FETCH_CONCURRENCY | integer | 10 | Maximum number of parallel package fetch requests. |
+
 ## SERVER_PACKAGES_CACHE
 Package Cache settings including TTL, sizing, and persistence options.
 

@@ -1,23 +1,16 @@
 <template>
   <UPage>
     <div class="space-y-12 py-8">
-      <!-- Hero Section -->
       <section class="space-y-4 text-center">
-        <h1 class="text-toned text-4xl font-bold">ReleaseTracker</h1>
-        <p class="text-muted text-xl">Self-Hosted Package Release Tracker</p>
-        <p class="text-muted mx-auto max-w-2xl">
-          Monitor and track releases of software packages from GitHub repositories and NPM packages. Organize
-          packages into customizable lists and stay updated without relying on external services.
-        </p>
+        <h1 class="text-toned text-4xl font-bold">Shipped</h1>
+        <p class="text-muted text-xl">Self-hosted package release tracker for GitHub, NPM, and Docker.</p>
       </section>
 
-      <!-- Badges -->
       <section class="flex justify-center gap-4">
         <img :src="`https://img.shields.io/github/v/release/${repo}?label=version`" alt="Version" />
         <img :src="`https://img.shields.io/docker/v/${repo}?label=docker`" alt="Docker" />
       </section>
 
-      <!-- Quick Links -->
       <section class="mx-auto max-w-2xl">
         <h2 class="mb-8 text-center text-2xl font-semibold">Get Started</h2>
         <div class="grid gap-4 sm:grid-cols-2">
@@ -38,7 +31,7 @@
             variant="outline"
             size="lg"
             icon="lucide:book"
-            :to="`https://github.com/${repo}`"
+            :to="`https://github.com/${repo}/blob/main/README.md`"
             external
             target="_blank"
             rel="noopener noreferrer"
@@ -62,22 +55,9 @@
         </div>
       </section>
 
-      <!-- Features -->
       <section class="mx-auto max-w-4xl">
         <h2 class="mb-8 text-center text-2xl font-semibold">Features</h2>
         <div class="grid gap-6 md:grid-cols-2">
-          <UCard>
-            <div class="flex items-start gap-3">
-              <UIcon name="lucide:server" class="text-primary mt-1 h-6 w-6" />
-              <div>
-                <h3 class="font-semibold">Self-Hosted</h3>
-                <p class="text-muted text-sm">
-                  Host your own dashboard with full control over your data and privacy.
-                </p>
-              </div>
-            </div>
-          </UCard>
-
           <UCard>
             <div class="flex items-start gap-3">
               <UIcon name="lucide:package" class="text-primary mt-1 h-6 w-6" />
@@ -116,7 +96,7 @@
 </template>
 
 <script setup lang="ts">
-const repo = "drizzle-team/drizzle-orm";
+const repo = "nipakke/shipped";
 
 defineOgImage("ShippedSeo", [
   {

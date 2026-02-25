@@ -1,11 +1,5 @@
 <template>
   <div class="space-y-3">
-    <!-- <div class="uppercase text-sm text-muted flex items-center gap-1">
-      <UIcon name="lucide:clock" />
-      releases
-    </div> -->
-    <!-- <div class="border border-zinc-600 divide-y divide-zinc-600 rounded-md overflow-hidden"> -->
-
     <div class="group space-y-1">
       <template v-if="releases.length > 0">
         <div
