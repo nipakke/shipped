@@ -59,8 +59,6 @@
 
         <ReuseValueRow icon="i-lucide-server" label="Provider" :value="config.provider" />
 
-        <!-- <ReuseValueRow v-if="config.group" icon="i-lucide-folder" label="Group" :value="config.group" /> -->
-
         <div v-if="config.extra && Object.keys(config.extra).length > 0">
           <USeparator class="my-4" />
           <div class="text-muted mb-3 font-light uppercase">Extra</div>

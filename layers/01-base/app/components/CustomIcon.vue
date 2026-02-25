@@ -51,16 +51,16 @@ const iconSizeClass = computed(() => {
 
 const effectiveLight = computed(() => {
   if (props.icon && props.iconDark) {
-    return props.icon; // Both provided, use icon for light
+    return props.icon;
   }
-  return props.iconDark || props.icon; // Use whichever is available
+  return props.iconDark || props.icon;
 });
 
 const effectiveDark = computed(() => {
   if (props.icon && props.iconDark) {
     return props.iconDark; // Both provided, use iconDark for dark
   }
-  return props.iconDark || props.icon; // Use whichever is available
+  return props.iconDark || props.icon;
 });
 
 function isUrl(str: string): boolean {

@@ -29,11 +29,6 @@ export default defineNuxtPlugin((nuxt) => {
       queries: {
         staleTime: 60 * 60 * 1000,
         refetchInterval: 60 * 1000,
-        // refetchOnWindowFocus: true,
-        /* queryKeyHashFn(queryKey) {
-          const [json, meta] = serializer.serialize(queryKey)
-          return JSON.stringify({ json, meta })
-        } */
       },
     },
   });

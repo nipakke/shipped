@@ -1,9 +1,11 @@
 import { ConfigProvider, Config, Layer } from "effect";
-import path, { join } from "node:path";
+import path from "node:path";
 
 const resolveDir = (configuredDir: string): string => {
   const isAbsolutePath = path.isAbsolute(configuredDir);
-  return isAbsolutePath ? configuredDir : join(process.cwd(), configuredDir);
+  const abs = isAbsolutePath ? configuredDir : path.join(process.cwd(), configuredDir);
+
+  return path.normalize(abs);
 };
 
 const packagesCache = Config.nested("CACHE")(

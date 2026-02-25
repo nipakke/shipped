@@ -1,6 +1,5 @@
 <template>
   <UHeader :mode="isMobile ? 'drawer' : 'slideover'">
-    <!--  class="bg-[#0e1010]/80" -->
     <template #title>
       <img src="/logo.svg" class="max-h-8 max-w-8" />
     </template>

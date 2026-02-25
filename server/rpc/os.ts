@@ -7,7 +7,4 @@ interface ORPCMetadata {
   cacheControl?: string;
 }
 
-export const osBase = os
-  .errors(rpcErrors.errorMap)
-  .$context<ORPCContext>()
-  .$meta<ORPCMetadata /*  | undefined */>({});
+export const osBase = os.errors(rpcErrors.errorMap).$context<ORPCContext>().$meta<ORPCMetadata>({});
