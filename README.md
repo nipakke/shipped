@@ -48,9 +48,3 @@ MIT
 ## Feedback
 
 Found an issue or have a suggestion? [Open a GitHub issue](https://github.com/nipakke/shipped/issues).
-
-# todo
-
-- cleanup dependencies
-- fix docs
-- public directory
