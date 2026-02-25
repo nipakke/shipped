@@ -1,0 +1,1 @@
+export { useRPC } from "../libs/rpc";

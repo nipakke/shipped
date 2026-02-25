@@ -1,0 +1,42 @@
+# **/.classpath
+# **/.dockerignore
+# **/.env
+# **/.git
+# **/.gitignore
+# **/.project
+# **/.settings
+# **/.toolstarget
+# **/.vs
+# **/.vscode
+# **/*.*proj.user
+# **/*.dbmdl
+# **/*.jfm
+# **/charts
+# **/docker-compose*
+# **/compose*
+# **/Dockerfile*
+# **/node_modules
+# !.next/standalone/node_modules
+# **/npm-debug.log
+# **/obj
+# **/secrets.dev.yaml
+# **/values.dev.yaml
+# README.md
+# config/
+# k3d/
+
+node_modules
+Dockerfile*
+docker-compose*
+.dockerignore
+.git
+.gitignore
+README.md
+LICENSE
+.vscode
+Makefile
+helm-charts
+.env
+.editorconfig
+.idea
+coverage*

@@ -1,0 +1,36 @@
+[
+    {
+        "scope": "https://ungh.cc:443",
+        "method": "GET",
+        "path": "/repos/nonexistent/nonexistent-owner-repo",
+        "body": "",
+        "status": 404,
+        "response": {
+            "error": true,
+            "url": "https://ungh.cc/repos/nonexistent/nonexistent-owner-repo",
+            "statusCode": 404,
+            "statusMessage": "Not Found",
+            "message": "Server Error"
+        },
+        "rawHeaders": {
+            "access-control-allow-headers": "*",
+            "access-control-allow-methods": "*",
+            "access-control-allow-origin": "*",
+            "access-control-max-age": "0",
+            "age": "0",
+            "cache-control": "no-cache",
+            "content-length": "170",
+            "content-security-policy": "script-src 'none'; frame-ancestors 'none';",
+            "content-type": "application/json",
+            "date": "Wed, 25 Feb 2026 21:03:03 GMT",
+            "referrer-policy": "no-referrer",
+            "server": "Vercel",
+            "strict-transport-security": "max-age=63072000",
+            "x-content-type-options": "nosniff",
+            "x-frame-options": "DENY",
+            "x-vercel-cache": "MISS",
+            "x-vercel-id": "fra1::iad1::fbdjm-1772053383103-0680192f74cc"
+        },
+        "responseIsBinary": false
+    }
+]

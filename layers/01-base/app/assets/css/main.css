@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+@import "./colors.css";
+@import "./theme.css";
+@import "./transitions.css";
+
+@custom-variant can-hover {
+  @media (hover: hover) {
+    @slot;
+  }
+}
+
+@custom-variant no-hover {
+  @media (hover: none) {
+    @slot;
+  }
+}

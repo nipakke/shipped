@@ -1,0 +1,42 @@
+# Nuxt dev/build outputs
+.output
+.data
+.nuxt
+.nitro
+cache
+dist
+
+tmp
+.tmp
+
+/.cache
+
+/cache/
+/config/
+
+# Node dependencies
+node_modules
+
+nul
+
+# Logs
+logs
+*.log
+
+# Misc
+.DS_Store
+.fleet
+.idea
+
+# Local env files
+.env
+.env.*
+!.env.example
+
+
+
+coverage/
+.coverage
+coverage.xml
+htmlcov/
+lcov-report/

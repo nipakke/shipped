@@ -1,0 +1,33 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "perf": "warn"
+  },
+  "rules": {
+    "eslint/no-console": "off",
+    "eslint/no-unused-vars": [
+      "error",
+      {
+        "argsIgnorePattern": "^_"
+      }
+    ]
+  },
+  "plugins": ["typescript", "unicorn", "oxc"],
+  "ignorePatterns": [
+    "**/.nuxt/",
+    "**/.output/",
+    "**/node_modules/",
+    "**/dist/",
+    "**/coverage/",
+    "**/*.d.ts",
+    "**/*.config.*",
+    "**/docs/",
+    "/config/",
+    "**/package.json",
+    "**/CHANGELOG.md",
+    "**/.vscode/",
+    "**/fixtures/**"
+  ]
+}

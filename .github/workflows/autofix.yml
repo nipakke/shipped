@@ -1,0 +1,52 @@
+name: autofix.ci
+
+on:
+  pull_request:
+    branches: [main]
+
+concurrency:
+  group: autofix-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  autofix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v6
+        with:
+          node-version: lts/*
+          cache: "pnpm"
+
+      - run: pnpm install
+
+      - run: pnpm test
+
+      - run: pnpm lint:fix
+
+      - run: pnpm format
+
+      - name: Check for changed paths
+        uses: dorny/paths-filter@v3
+        id: filter
+        with:
+          filters: |
+            server-config:
+              - 'server/config.ts'
+            libs-config:
+              - 'libs/config/**'
+
+      - name: Generate env docs
+        if: steps.filter.outputs.server-config == 'true'
+        run: pnpm generate-env-docs
+
+      - name: Generate config schemas
+        if: steps.filter.outputs.libs-config == 'true'
+        run: pnpm generate-config-schemas
+
+      - uses: autofix-ci/action@7a166d7532b277f34e16238930461bf77f9d7ed8

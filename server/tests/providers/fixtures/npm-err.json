@@ -1,0 +1,25 @@
+[
+    {
+        "scope": "https://registry.npmjs.org:443",
+        "method": "GET",
+        "path": "/nonexistent-package",
+        "body": "",
+        "status": 404,
+        "response": {
+            "error": "Not found"
+        },
+        "rawHeaders": {
+            "access-control-allow-origin": "*",
+            "cache-control": "public, max-age=300",
+            "cf-ray": "9d3a25ab1fb53253-VIE",
+            "connection": "keep-alive",
+            "content-length": "21",
+            "content-type": "application/json",
+            "date": "Wed, 25 Feb 2026 21:03:03 GMT",
+            "server": "cloudflare",
+            "set-cookie": "_cfuvid=t4LSmO38QrkJ2q5py6OB.ER5klS49mYy.SSUuqLmp9U-1772053383103-0.0.1.1-604800000; path=/; domain=.npmjs.org; HttpOnly; Secure; SameSite=None",
+            "vary": "Accept-Encoding"
+        },
+        "responseIsBinary": false
+    }
+]
