@@ -21,7 +21,6 @@ import ConfigPanel from "../ConfigPanel.vue";
 
 const props = defineProps<{
   message: string;
-  // error: RPCError;
   config: PackageConfigView;
 }>();
 </script>

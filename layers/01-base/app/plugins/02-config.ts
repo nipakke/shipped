@@ -13,7 +13,6 @@ const userConfigCarrier = createStateCarrier({
 
 const PING_TIMEOUT = import.meta.dev ? 2000 : 10000;
 
-//TODO: ha meghal a szerver nem reconnectel :(
 export default defineNuxtPlugin(async (nuxtApp) => {
   const data = ref<UserConfigView | undefined>();
   const isConnected = ref(false);
@@ -106,7 +105,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       return;
     }
 
-    //TODO: Ez nem timeoutul. legalábbis a call... (make a timeout signal?)
     _unsubscribeStream = consumeEventIterator(useRPC().config.getStream.call(undefined, {}), {
       onEvent(val) {
         isConnected.value = true;
@@ -172,7 +170,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
         streamError,
         error,
         refresh,
-      } /*  satisfies Config, */,
+      },
     },
   };
 });

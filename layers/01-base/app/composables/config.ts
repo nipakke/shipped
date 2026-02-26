@@ -1,4 +1,4 @@
-export function useUserConfig() /* : Config */ {
+export function useUserConfig() {
   const data = useNuxtApp().$userConfigData;
 
   if (!data) {

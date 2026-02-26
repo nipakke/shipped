@@ -8,11 +8,8 @@ import { PLUGINS } from "../plugins";
 const GET_OPERATION_TYPE = new Set(["query", "streamed", "live", "infinite"]);
 
 export function createHTTPLink(e?: H3Event) {
-  // console.log("Create http link", e?.fetch);
-
   return new RPCLink<ORPCClientContext>({
     fetch: e?.fetch,
-    // fetch: import.meta.server ? useRequestFetch() : undefined,
     url: `${typeof window !== "undefined" ? window.location.origin : "http://localhost:3000"}/api/rpc`,
     headers: () => {
       const headers = new Headers(e?.headers ?? {});
