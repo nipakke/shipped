@@ -13,6 +13,16 @@ const DEFAULT_CONTENT = [
     description: "App tech stack. Edit lists.yaml to customize.",
     groups: [
       {
+        name: "shipped",
+        showName: false,
+        packages: [
+          {
+            name: "nipakke/shipped",
+            provider: "github",
+          },
+        ],
+      },
+      {
         name: "frameworks",
         packages: [
           {
