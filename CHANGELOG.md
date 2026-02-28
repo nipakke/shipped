@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/nipakke/shipped/compare/v1.1.0...v1.1.1) (2026-02-28)
+
+
+### Bug Fixes
+
+* resolve cache paths relatively instead of absolute in cache ([#12](https://github.com/nipakke/shipped/issues/12)) ([55bedf8](https://github.com/nipakke/shipped/commit/55bedf816a785f99c80f132112b2ff21e74983e7))
+
 ## [1.1.0](https://github.com/nipakke/shipped/compare/v1.0.1...v1.1.0) (2026-02-26)
 
 
