@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/nipakke/shipped/compare/v1.1.0...v1.1.1) (2026-03-07)
+
+
+### Bug Fixes
+
+* **deps:** bump the dependencies group with 10 updates ([#16](https://github.com/nipakke/shipped/issues/16)) ([8a4c60e](https://github.com/nipakke/shipped/commit/8a4c60e4ca15e7c42015906d7c89775e6648c369))
+* resolve cache paths relatively instead of absolute in cache ([#12](https://github.com/nipakke/shipped/issues/12)) ([55bedf8](https://github.com/nipakke/shipped/commit/55bedf816a785f99c80f132112b2ff21e74983e7))
+
 ## [1.1.0](https://github.com/nipakke/shipped/compare/v1.0.1...v1.1.0) (2026-02-26)
 
 
