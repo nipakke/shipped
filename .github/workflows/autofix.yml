@@ -32,7 +32,7 @@ jobs:
       - run: pnpm format
 
       - name: Check for changed paths
-        uses: dorny/paths-filter@v3
+        uses: dorny/paths-filter@v4
         id: filter
         with:
           filters: |
