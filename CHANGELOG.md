@@ -1,5 +1,18 @@
 # Changelog
 
+## [1.2.0](https://github.com/nipakke/shipped/compare/v1.1.1...v1.2.0) (2026-03-26)
+
+
+### Features
+
+* adjust release history colors ([#28](https://github.com/nipakke/shipped/issues/28)) ([16b23a6](https://github.com/nipakke/shipped/commit/16b23a618c5b38d740ea93d2a721069ac88b8f22))
+
+
+### Bug Fixes
+
+* **deps:** bump the dependencies group with 3 updates ([#21](https://github.com/nipakke/shipped/issues/21)) ([d304cbb](https://github.com/nipakke/shipped/commit/d304cbbcbab6534720e304d1e3d6568935aead99))
+* slugify returns empty string ([#29](https://github.com/nipakke/shipped/issues/29)) ([7587800](https://github.com/nipakke/shipped/commit/75878007d22359ea0238d01768b070eba3abf6e0))
+
 ## [1.1.1](https://github.com/nipakke/shipped/compare/v1.1.0...v1.1.1) (2026-03-07)
 
 
