@@ -5,7 +5,7 @@
         <div
           v-for="(release, index) in releases"
           :key="release.version"
-          class="flex items-center justify-between gap-2 rounded-xl px-3 py-1"
+          class="flex items-center justify-between gap-2 rounded-xl px-3 py-1 shadow-sm"
           :class="[getVersionColor(release.createdAt)]"
         >
           <span class="line-clamp-1 max-w-20 font-mono text-sm">
@@ -47,8 +47,9 @@ const getVersionColor = (createdAt?: Date | string) => {
   const diffTime = Math.abs(now.getTime() - new Date(createdAt).getTime());
   const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
 
-  if (diffDays <= 3) return "bg-emerald-500/15 text-emerald-500";
-  if (diffDays <= 14) return "bg-amber-500/15 text-amber-500";
+  if (diffDays <= 1) return "bg-green-500/15 text-green-500";
+  if (diffDays <= 3) return "bg-lime-300/15 text-lime-300";
+  if (diffDays <= 14) return "bg-amber-400/15 text-amber-400";
   return "dark:bg-elevated bg-accented text-muted";
 };
 </script>
