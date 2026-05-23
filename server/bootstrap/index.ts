@@ -37,6 +37,7 @@ export const bootstrap: NitroAppPlugin = async (nitro) => {
     console.info("Closing nitro...");
     await disposeRuntime();
     console.info("bye");
+    nitro.hooks.removeAllHooks()
   });
 
   nitro.hooks.hook("request", async () => {

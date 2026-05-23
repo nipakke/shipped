@@ -17,7 +17,7 @@
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[html]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
+    "editor.defaultFormatter": "vscode.html-language-features"
   },
   "[jsonc]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"
@@ -29,7 +29,7 @@
     "editor.defaultFormatter": "oxc.oxc-vscode"
   },
   "[vue]": {
-    "editor.defaultFormatter": "oxc.oxc-vscode"
+    "editor.defaultFormatter": "Vue.volar"
   },
   "[yaml]": {
     "editor.defaultFormatter": "oxc.oxc-vscode"

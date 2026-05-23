@@ -1,15 +1,8 @@
 <template>
-  <slot
-    :data="data"
-    :error="query.error"
-    :isLoading="query.isLoading"
-    :isRetrying="query.isFetching"
-    :refetch="refetch"
-    :canRetry="canRetryFlag"
-    v-bind="{
-      isPending: query.isPending,
-    }"
-  />
+  <slot :data="data" :error="query.error" :isLoading="query.pending" :isRetrying="false" :refetch="refetch"
+    :canRetry="canRetryFlag" v-bind="{
+      isPending: query.pending,
+    }" />
 </template>
 
 <script setup lang="ts">
@@ -24,24 +17,44 @@ const props = defineProps<{
 
 const rpc = useRPC();
 
-const query = useQuery(
+const isPrerendering = import.meta.prerender;
+
+console.log("VALID:", props.config.packageId)
+
+const query = await useAsyncData(`package-${props.config.packageId}`, () => rpc.packages.getOne({
+  // experimental_prefetchInRender: true,
+  // refetchInterval: isPrerendering ? false : 60_000,
+  // refetchOnWindowFocus: isPrerendering ? false : true,
+  packageId: props.config.packageId,
+  // enabled: isPrerendering ? true : import.meta.client,
+}), {
+  server: true,
+  // server: import.meta.prerender,
+})
+
+
+/* const query = useQuery(
   rpc.packages.getOne.queryOptions({
     retry: 2,
     experimental_prefetchInRender: true,
-    refetchInterval: 60_000,
-    refetchOnWindowFocus: true,
+    refetchInterval: isPrerendering ? false : 60_000,
+    refetchOnWindowFocus: isPrerendering ? false : true,
     input: {
       packageId: props.config.packageId,
     },
-    enabled: import.meta.client,
+    enabled: isPrerendering ? true : import.meta.client,
   }),
 );
+
+if (isPrerendering) {
+  await query.suspense();
+} */
 
 watch(
   () => props.config,
   (val, oldVal) => {
     if (val.packageId != oldVal.packageId) {
-      query.refetch();
+      // query.refetch();
     }
   },
 );
@@ -54,7 +67,7 @@ const canRetryFlag = computed(() => false);
 
 function refetch() {
   if (canRetryFlag.value) {
-    query.refetch();
+    // query.refetch();
   }
 }
 </script>

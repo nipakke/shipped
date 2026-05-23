@@ -36,6 +36,11 @@ export default defineNuxtConfig({
     typeCheck: false,
     shim: false
   },
+  hooks:{
+    "build:done": async () => {
+      console.log("DONE")      
+    }
+  },
   vite: {
     build: {
       rollupOptions: {
@@ -51,7 +56,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  routeRules: {
+    "/": { prerender: true },
+    "/getting-started": { prerender: true },
+    "/list/**": { prerender: true },
+  },
+  experimental:{
+    payloadExtraction:true
+  },
   nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
     typescript: {
       tsConfig: {
         compilerOptions: {

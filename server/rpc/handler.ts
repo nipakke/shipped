@@ -5,9 +5,18 @@ import { ResponseHeadersPlugin } from "@orpc/server/plugins";
 import { orpcRouter } from "~~/server/rpc/router";
 
 import { createContext } from "./context";
+import { onError,onStart } from "@orpc/server";
 
 const handler = new RPCHandler(orpcRouter, {
   plugins: [new RatelimitHandlerPlugin(), new StrictGetMethodPlugin(), new ResponseHeadersPlugin()],
+  clientInterceptors:[
+    onStart((a) => {
+      console.log("INPUT",a.input)
+    }),
+    onError((e) => {
+      console.log("e",e)
+    })
+  ]
 });
 
 export default defineEventHandler(async (event) => {

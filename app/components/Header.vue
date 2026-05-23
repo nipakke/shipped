@@ -18,8 +18,10 @@
       -->
       <DevOnly><Devtools /></DevOnly>
 
-      <ConfigWarningIcon v-show="hasConfigWarnings" />
-      <ConfigConnectedChip />
+      <template v-if="!isPrerendering">
+        <ConfigWarningIcon v-show="hasConfigWarnings" />
+        <ConfigConnectedChip />
+      </template>
       <UColorModeButton />
     </template>
   </UHeader>
@@ -31,6 +33,7 @@ import { ConfigConnectedChip, ConfigWarningIcon } from "#components";
 import type { ListConfigView } from "~~/libs/config/view";
 import Devtools from "./Devtools.client.vue";
 
+const isPrerendering = import.meta.prerender;
 const isMobile = useIsMobile();
 const userConfig = useUserConfig();
 

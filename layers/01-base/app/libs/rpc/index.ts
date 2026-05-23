@@ -9,7 +9,7 @@ import type { orpcRouter } from "~~/server/rpc/router";
 
 import { createHTTPLink } from "./links/http";
 
-export interface ORPCClientContext extends TanstackQueryOperationContext, ClientRetryPluginContext {
+export interface ORPCClientContext extends ClientRetryPluginContext {
   cache?: RequestCache;
 }
 
@@ -17,9 +17,10 @@ export function createRPC(e?: H3Event) {
   const httpLink = createHTTPLink(e);
 
   const raw: RouterClient<typeof orpcRouter, ORPCClientContext> = createORPCClient(httpLink);
-  const tanstack = createTanstackQueryUtils(raw);
+  return raw;
+  /* const tanstack = createTanstackQueryUtils(raw);
 
-  return tanstack;
+  return tanstack; */
 }
 
 type RPC = ReturnType<typeof createRPC>;
