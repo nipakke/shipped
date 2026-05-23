@@ -1,0 +1,30 @@
+# yaml-language-server: $schema: https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/lists.json
+- name: Tech stack
+  description: App tech stack. Edit lists.yaml to customize.
+  groups:
+    - name: shipped
+      showName: false
+      packages:
+        - name: nipakke/shipped
+          provider: github
+    - name: frameworks
+      packages:
+        - name: nuxt/nuxt
+          provider: github
+        - name: effect
+          provider: npm
+          extra:
+            tags:
+              - latest
+              - beta
+        - name: middleapi/orpc
+          provider: github
+          displayName: ORPC
+    - name: client
+      packages:
+        - name: "@tanstack/vue-query"
+          provider: npm
+        - name: nuxt/ui
+          provider: github
+        - name: tailwindcss
+          provider: npm
