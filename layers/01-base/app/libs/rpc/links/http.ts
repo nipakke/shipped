@@ -14,11 +14,12 @@ export function createHTTPLink(e?: H3Event) {
   // Client-side: use window.location.origin or fallback to localhost.
   const baseUrl = e
     ? getRequestURL(e).origin
-    : (typeof window !== "undefined" ? window.location.origin : "http://localhost:3000");
+    : typeof window !== "undefined"
+      ? window.location.origin
+      : "http://localhost:3000";
 
-  const serverFetch =
-    e ?
-      (input: string | URL | Request, init?: RequestInit) => {
+  const serverFetch = e
+    ? (input: string | URL | Request, init?: RequestInit) => {
         // Strip origin from absolute URLs so Nitro routes them internally
         const url = typeof input === "string" ? input : input instanceof URL ? input.toString() : input.url;
         const relativeUrl = url.startsWith(baseUrl) ? url.slice(baseUrl.length) : url;
@@ -34,7 +35,7 @@ export function createHTTPLink(e?: H3Event) {
 
       return Object.fromEntries(headers);
     },
-    method: "GET"
+    method: "GET",
     /* method: ({ context }) => {
       return "GET"
       if (context?.cache) {

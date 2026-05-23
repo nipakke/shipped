@@ -18,7 +18,6 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   const isConnected = ref(false);
   const streamError = ref<unknown>();
   const isStreamingEnabled = ref(false);
-    console.log("Start", import.meta.server, import.meta.prerender)
 
   /**
    * 3 states
@@ -92,10 +91,8 @@ export default defineNuxtPlugin(async (nuxtApp) => {
   }
 
   async function start() {
-
     if (import.meta.server) return;
     if (import.meta.prerender) return;
-
 
     if (isConnected.value) return;
 
