@@ -6,7 +6,10 @@
         <div class="max-w-xs space-y-4 p-4">
           <div class="flex gap-2">
             <div class="pt-1">
-              <div class="flex size-8 shrink-0 items-center justify-center rounded-full" :class="popoverIconClass">
+              <div
+                class="flex size-8 shrink-0 items-center justify-center rounded-full"
+                :class="popoverIconClass"
+              >
                 <UIcon :name="popoverIcon" class="size-5" />
               </div>
             </div>
@@ -20,8 +23,15 @@
             </div>
           </div>
           <div v-if="userConfig.state.value === 'static'">
-            <UButton icon="lucide:refresh-cw" color="neutral" block variant="solid" @click="userConfig.refresh()">
-              Refresh config</UButton>
+            <UButton
+              icon="lucide:refresh-cw"
+              color="neutral"
+              block
+              variant="solid"
+              @click="userConfig.refresh()"
+            >
+              Refresh config</UButton
+            >
           </div>
         </div>
       </template>
@@ -32,7 +42,6 @@
 <script setup lang="ts">
 //need to use 'useState' so it is persisted in the payload when doing SSG for demo
 const isPrerendering = useState("is-prerendering", () => import.meta.prerender);
-
 
 const userConfig = useUserConfig();
 const streamError = computed(() => userConfig.streamError.value);

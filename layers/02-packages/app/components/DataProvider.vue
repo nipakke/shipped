@@ -1,7 +1,13 @@
 <template>
-  <slot :data="data" :error="query.error" :isLoading="query.pending" :isRetrying="false" v-bind="{
-    isPending: query.pending,
-  }" />
+  <slot
+    :data="data"
+    :error="query.error"
+    :isLoading="query.pending"
+    :isRetrying="false"
+    v-bind="{
+      isPending: query.pending,
+    }"
+  />
 </template>
 
 <script setup lang="ts">

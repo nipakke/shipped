@@ -30,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-
 import type { NavigationMenuItem } from "#ui/types";
 import { ConfigConnectedChip, ConfigWarningIcon } from "#components";
 import type { ListConfigView } from "~~/libs/config/view";
