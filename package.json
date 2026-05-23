@@ -14,6 +14,7 @@
     "format": "oxfmt --write",
     "format:check": "oxfmt --check",
     "generate": "nuxt generate",
+    "generate:demo": "SERVER_CONFIG_DIR=config-demo nuxt generate",
     "generate-config-schemas": "pnpx tsx scripts/generate-json-schemas.ts",
     "generate-env-docs": "pnpx tsx scripts/generate-env-docs.ts -c server/config.ts -o docs/env.md -v ServerConfig",
     "postinstall": "nuxt prepare",

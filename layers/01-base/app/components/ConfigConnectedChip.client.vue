@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div v-if="!isPrerendering">
     <UPopover mode="hover">
       <UButton variant="ghost" :color="chipColor" icon="stash:circle-dot-duotone"> </UButton>
       <template #content>
@@ -29,7 +29,8 @@
               block
               variant="solid"
               @click="userConfig.refresh()"
-              >Refresh config</UButton
+            >
+              Refresh config</UButton
             >
           </div>
         </div>
@@ -39,6 +40,9 @@
 </template>
 
 <script setup lang="ts">
+//need to use 'useState' so it is persisted in the payload when doing SSG for demo
+const isPrerendering = useState("is-prerendering", () => import.meta.prerender);
+
 const userConfig = useUserConfig();
 const streamError = computed(() => userConfig.streamError.value);
 

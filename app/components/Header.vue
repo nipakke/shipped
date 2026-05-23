@@ -16,10 +16,14 @@
         devtools doesn't show up on the bottom fsr. manually open it
         in prod this is not shown       
       -->
-      <DevOnly><Devtools /></DevOnly>
+      <DevOnly>
+        <Devtools />
+      </DevOnly>
 
-      <ConfigWarningIcon v-show="hasConfigWarnings" />
-      <ConfigConnectedChip />
+      <ClientOnly>
+        <ConfigWarningIcon v-show="hasConfigWarnings" />
+        <ConfigConnectedChip />
+      </ClientOnly>
       <UColorModeButton />
     </template>
   </UHeader>

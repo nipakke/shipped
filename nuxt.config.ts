@@ -51,7 +51,18 @@ export default defineNuxtConfig({
       },
     },
   },
+  routeRules: {
+    "/": { prerender: true },
+    "/getting-started": { prerender: true },
+    "/list/**": { prerender: true },
+  },
+  experimental:{
+    payloadExtraction:true
+  },
   nitro: {
+    prerender: {
+      crawlLinks: true,
+    },
     typescript: {
       tsConfig: {
         compilerOptions: {

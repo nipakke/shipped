@@ -150,6 +150,9 @@ export const UserConfigLoaderLive = Layer.scoped(
         ),
       ),
       Effect.forkScoped,
+      //TODO: This generally shouldn't be available. In a non-nuxt env this is undefined.
+      //make a "port"/config for it.
+      Effect.when(() => !import.meta.prerender),
     );
 
     return {

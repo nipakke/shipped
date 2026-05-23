@@ -70,7 +70,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
     const rpc = useRPC();
 
     try {
-      const userConfig = await rpc.config.get.call();
+      const userConfig = await rpc.config.get();
 
       if (userConfig && nuxtApp?.payload.state) userConfigCarrier.inject(nuxtApp.payload.state, userConfig);
 
@@ -105,7 +105,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
       return;
     }
 
-    _unsubscribeStream = consumeEventIterator(useRPC().config.getStream.call(undefined, {}), {
+    _unsubscribeStream = consumeEventIterator(useRPC().config.getStream(undefined, {}), {
       onEvent(val) {
         isConnected.value = true;
         streamError.value = undefined;
@@ -148,7 +148,7 @@ export default defineNuxtPlugin(async (nuxtApp) => {
 
   async function refresh() {
     useRPC()
-      .config.get.call()
+      .config.get()
       .then((res) => {
         applyConfig(res);
 

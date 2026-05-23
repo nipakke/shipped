@@ -1,0 +1,2 @@
+# yaml-language-server: $schema: https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/ui.json
+maxListsInHeader: 3

@@ -16,6 +16,7 @@
   },
   "plugins": ["typescript", "unicorn", "oxc"],
   "ignorePatterns": [
+    ".opencode/**",
     "**/.nuxt/",
     "**/.output/",
     "**/node_modules/",

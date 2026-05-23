@@ -1,0 +1,18 @@
+# yaml-language-server: $schema: https://raw.githubusercontent.com/nipakke/shipped/main/docs/config-files/providers.json
+github:
+  extra:
+    includePrereleases: false
+    maxReleases: 3
+npm:
+  extra:
+    tags:
+      - latest
+python:
+  extra:
+    maxReleases: 3
+docker:
+  extra:
+    tags:
+      - latest
+      - slim
+      - alpine

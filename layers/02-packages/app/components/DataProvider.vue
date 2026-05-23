@@ -2,12 +2,10 @@
   <slot
     :data="data"
     :error="query.error"
-    :isLoading="query.isLoading"
-    :isRetrying="query.isFetching"
-    :refetch="refetch"
-    :canRetry="canRetryFlag"
+    :isLoading="query.pending"
+    :isRetrying="false"
     v-bind="{
-      isPending: query.isPending,
+      isPending: query.pending,
     }"
   />
 </template>
@@ -24,37 +22,14 @@ const props = defineProps<{
 
 const rpc = useRPC();
 
-const query = useQuery(
-  rpc.packages.getOne.queryOptions({
-    retry: 2,
-    experimental_prefetchInRender: true,
-    refetchInterval: 60_000,
-    refetchOnWindowFocus: true,
-    input: {
+const { data, ...query } = await useAsyncData(
+  `package-${props.config.packageId}`,
+  () =>
+    rpc.packages.getOne({
       packageId: props.config.packageId,
-    },
-    enabled: import.meta.client,
-  }),
-);
-
-watch(
-  () => props.config,
-  (val, oldVal) => {
-    if (val.packageId != oldVal.packageId) {
-      query.refetch();
-    }
+    }),
+  {
+    server: !!import.meta.prerender,
   },
 );
-
-const data = computed<Package | undefined>(() => {
-  return query.data.value ?? undefined; /*  ? PackageData.make(query.data.value) : undefined; */
-});
-
-const canRetryFlag = computed(() => false);
-
-function refetch() {
-  if (canRetryFlag.value) {
-    query.refetch();
-  }
-}
 </script>
