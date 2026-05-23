@@ -36,11 +36,6 @@ export default defineNuxtConfig({
     typeCheck: false,
     shim: false
   },
-  hooks:{
-    "build:done": async () => {
-      console.log("DONE")      
-    }
-  },
   vite: {
     build: {
       rollupOptions: {
