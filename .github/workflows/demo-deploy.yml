@@ -10,13 +10,10 @@ concurrency:
   group: pages
   cancel-in-progress: true
 
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
 jobs:
-  build:
+  deploy:
+    permissions:
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -31,27 +28,13 @@ jobs:
       - run: pnpm install
 
       - name: Generate demo site
-        run: pnpm generate:demo
+        run: pnpm generate
         env:
           NITRO_PRESET: github_pages
           SERVER_CONFIG_DIR: config-demo
           NUXT_APP_BASE_URL: /${{ github.event.repository.name }}/
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - uses: peaceiris/actions-gh-pages@v4
         with:
-          path: dist
-
-  deploy:
-    needs: build
-    permissions:
-      pages: write
-      id-token: write
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
