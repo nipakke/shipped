@@ -2,8 +2,6 @@ import { createORPCClient } from "@orpc/client";
 import { type ClientRetryPluginContext } from "@orpc/client/plugins";
 import type { ErrorFromErrorMap, InferContractRouterErrorMap } from "@orpc/contract";
 import { type RouterClient } from "@orpc/server";
-import type { TanstackQueryOperationContext } from "@orpc/tanstack-query";
-import { createTanstackQueryUtils } from "@orpc/tanstack-query";
 import type { H3Event } from "h3";
 import type { orpcRouter } from "~~/server/rpc/router";
 
@@ -18,9 +16,6 @@ export function createRPC(e?: H3Event) {
 
   const raw: RouterClient<typeof orpcRouter, ORPCClientContext> = createORPCClient(httpLink);
   return raw;
-  /* const tanstack = createTanstackQueryUtils(raw);
-
-  return tanstack; */
 }
 
 type RPC = ReturnType<typeof createRPC>;

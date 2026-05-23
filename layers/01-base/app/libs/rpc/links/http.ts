@@ -1,12 +1,8 @@
 import { RPCLink } from "@orpc/client/fetch";
-import { TANSTACK_QUERY_OPERATION_CONTEXT_SYMBOL } from "@orpc/tanstack-query";
 import type { H3Event } from "h3";
 import { getRequestURL } from "h3";
 
 import type { ORPCClientContext } from "..";
-import { PLUGINS } from "../plugins";
-
-const GET_OPERATION_TYPE = new Set(["query", "streamed", "live", "infinite"]);
 
 export function createHTTPLink(e?: H3Event) {
   // Server-side: use the request origin for constructing URLs, but strip the origin
@@ -36,19 +32,5 @@ export function createHTTPLink(e?: H3Event) {
       return Object.fromEntries(headers);
     },
     method: "GET",
-    /* method: ({ context }) => {
-      return "GET"
-      if (context?.cache) {
-        return "GET";
-      }
-
-      const operationType = context[TANSTACK_QUERY_OPERATION_CONTEXT_SYMBOL]?.type;
-
-      if (operationType && GET_OPERATION_TYPE.has(operationType)) {
-        return "GET";
-      }
-
-      return "POST";
-    }, */
   });
 }
