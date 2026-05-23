@@ -1,5 +1,4 @@
 import { RatelimitHandlerPlugin } from "@orpc/experimental-ratelimit";
-import { onError, onStart } from "@orpc/server";
 import { RPCHandler } from "@orpc/server/fetch";
 import { StrictGetMethodPlugin } from "@orpc/server/plugins";
 import { ResponseHeadersPlugin } from "@orpc/server/plugins";
@@ -9,14 +8,6 @@ import { createContext } from "./context";
 
 const handler = new RPCHandler(orpcRouter, {
   plugins: [new RatelimitHandlerPlugin(), new StrictGetMethodPlugin(), new ResponseHeadersPlugin()],
-  clientInterceptors: [
-    onStart((a) => {
-      console.log("INPUT", a.input);
-    }),
-    onError((e) => {
-      console.log("e", e);
-    }),
-  ],
 });
 
 export default defineEventHandler(async (event) => {
