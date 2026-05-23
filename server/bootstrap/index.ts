@@ -36,8 +36,21 @@ export const bootstrap: NitroAppPlugin = async (nitro) => {
   nitro.hooks.hook("close", async () => {
     console.info("Closing nitro...");
     await disposeRuntime();
+
+    // Safety net: after dispose, if the process is still alive after 10s
+    // something (bentocache worker, closed watcher, etc.) is keeping the
+    // event loop alive. Force an exit so CI / nuxt generate doesn't hang.
+    // 10s is generous — normal exit happens within ~100ms after dispose.
+    const hangGuard = setTimeout(() => {
+      console.warn("Process did not exit within 10s of dispose — forcing exit(0)");
+      process.exit(0);
+    }, 10_000);
+    // Unref so this timer itself doesn't prevent a clean exit when all
+    // other handles have been released.
+    hangGuard.unref();
+
     console.info("bye");
-    nitro.hooks.removeAllHooks()
+    nitro.hooks.removeAllHooks();
   });
 
   nitro.hooks.hook("request", async () => {

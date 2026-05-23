@@ -43,6 +43,11 @@ export const makeCache = Effect.gen(function* () {
     },
   });
 
+  // Ensure bentocache worker threads are terminated when the runtime shuts down.
+  // fileDriver creates a Worker with a setInterval for pruning — if left running
+  // it prevents the Node process from exiting.
+  yield* Effect.addFinalizer(() => Effect.promise(() => bento.disconnect()));
+
   const cache = yield* makeCoalescingCache(new BentoCacheBackend(bento), {
     fiberId,
   });
