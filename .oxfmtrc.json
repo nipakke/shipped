@@ -14,6 +14,7 @@
   },
   "experimentalTailwindcss": {},
   "ignorePatterns": [
+    ".opencode/**",
     "**/.nuxt/",
     "**/.output/",
     "**/node_modules/",
