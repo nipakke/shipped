@@ -23,7 +23,7 @@ const { data, ...query } = await useAsyncData(
       packageId: props.config.packageId,
     }),
   {
-    server: import.meta.prerender,
+    server: !!import.meta.prerender,
   },
 );
 </script>

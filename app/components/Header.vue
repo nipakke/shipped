@@ -16,24 +16,26 @@
         devtools doesn't show up on the bottom fsr. manually open it
         in prod this is not shown       
       -->
-      <DevOnly><Devtools /></DevOnly>
+      <DevOnly>
+        <Devtools />
+      </DevOnly>
 
-      <template v-if="!isPrerendering">
+      <ClientOnly>
         <ConfigWarningIcon v-show="hasConfigWarnings" />
         <ConfigConnectedChip />
-      </template>
+      </ClientOnly>
       <UColorModeButton />
     </template>
   </UHeader>
 </template>
 
 <script setup lang="ts">
+
 import type { NavigationMenuItem } from "#ui/types";
 import { ConfigConnectedChip, ConfigWarningIcon } from "#components";
 import type { ListConfigView } from "~~/libs/config/view";
 import Devtools from "./Devtools.client.vue";
 
-const isPrerendering = import.meta.prerender;
 const isMobile = useIsMobile();
 const userConfig = useUserConfig();
 
